@@ -9,7 +9,8 @@ RUN apt-get -qq update \
     procps \
     python
 
-RUN mkdir -p /opt \
+RUN npm install -g serverless \
+  && mkdir -p /opt \
   && curl -sSL "${GCLOUD_SDK_URL}" | tar zx -C /opt \
   && /opt/google-cloud-sdk/install.sh -q \
   && gcloud config set disable_usage_reporting true
